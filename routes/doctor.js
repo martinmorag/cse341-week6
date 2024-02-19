@@ -8,8 +8,8 @@ const { isAuthenticated } = require('../middleware/authenticate');
 // PATIENT
 router.get('/', doctorController.getAllDoctor);
 router.get('/:id', doctorController.getSingleDoctor);
-router.post('/', validation.saveDoctor, doctorController.createDoctor);
-router.put('/:id', validation.saveDoctor, doctorController.updateDoctor);
-router.delete('/:id', doctorController.deleteDoctor);
+router.post('/', isAuthenticated, validation.saveDoctor, doctorController.createDoctor);
+router.put('/:id', isAuthenticated, validation.saveDoctor, doctorController.updateDoctor);
+router.delete('/:id', isAuthenticated, doctorController.deleteDoctor);
 
 module.exports = router;
