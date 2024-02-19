@@ -8,8 +8,8 @@ const { isAuthenticated } = require('../middleware/authenticate');
 // PATIENT
 router.get('/', appointmentController.getAllAppointment);
 router.get('/:id', appointmentController.getSingleAppointment);
-router.post('/', validation.createAppointment, appointmentController.createAppointment);
-router.put('/:id', validation.createAppointment, appointmentController.updateAppointment);
-router.delete('/:id', appointmentController.deleteAppointment);
+router.post('/', isAuthenticated, validation.createAppointment, appointmentController.createAppointment);
+router.put('/:id', isAuthenticated, validation.createAppointment, appointmentController.updateAppointment);
+router.delete('/:id', isAuthenticated, appointmentController.deleteAppointment);
 
 module.exports = router;
